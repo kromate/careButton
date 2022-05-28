@@ -39,7 +39,7 @@ const initButton = ({ color, bgColor, scriptURL, openIcon, closeIcon, title, des
 
     form.addEventListener('submit', e => {
       e.preventDefault()
-      document.querySelector('#SUB123').disabled = true;
+        (document.querySelector('#SUB123') as HTMLButtonElement).disabled = true;
       document.querySelector('#SUB123').innerHTML = 'Sending...'
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => { formSubmit() })
