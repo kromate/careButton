@@ -22,7 +22,7 @@ const initButton = ({ color, bgColor, scriptURL, openIcon, closeIcon, title, des
       document.getElementById('b123').classList.add('animateB123')
     })
     document.getElementById('b123').addEventListener('click', () => {
-      box = document.getElementById('box123').style.display
+      let box = document.getElementById('box123').style.display
       if (box == 'block') {
         document.getElementById('c123').innerHTML = openIcon
         document.getElementById('box123').style.display = 'none'
@@ -46,20 +46,20 @@ const initButton = ({ color, bgColor, scriptURL, openIcon, closeIcon, title, des
         .catch(error => formError())
     })
 
-    formSubmit = function () {
+    const formSubmit = function () {
       form.innerHTML = `
                       <h3>Form Submitted</h3>
               <button onclick='showForm()' class='shrrr'>Send Another</button>
         `
     }
-    formError = function () {
+    const formError = function () {
       form.innerHTML = `
                       <h3>An Error Occurred <br> please send again</h3>
               <button onclick='showForm()' class='shrrr'>Retry</button>
         `
     }
 
-    showForm = function () {
+    const showForm = function () {
       form.innerHTML = `
                        <div class="v123"></div>
          <input type="text" placeholder="* Name" name="Product" value='KT' style='visibility: hidden; height:0px; padding:0px'> 
@@ -84,7 +84,7 @@ const initButton = ({ color, bgColor, scriptURL, openIcon, closeIcon, title, des
     let frame = document.createElement('iframe')
     let contentBody = document.createElement('div')
     contentBody.className = 'body123'
-    
+
 
     style.innerHTML = `
   
