@@ -81,9 +81,10 @@ const initButton = ({ color, bgColor, scriptURL, openIcon, closeIcon, title, des
     let head = document.querySelector('head')
     let body = document.querySelector('body')
     let style = document.createElement('style')
+    let frame = document.createElement('iframe')
     let contentBody = document.createElement('div')
     contentBody.className = 'body123'
-
+    
 
     style.innerHTML = `
   
