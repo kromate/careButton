@@ -1,5 +1,5 @@
-import { bodyView } from './frame/view'
-import { bodyStyle } from './frame/style'
+import { bodyView } from '../frame/view'
+import { bodyStyle } from '../frame/style'
 
 export const initButton = (
   { color = 'rgb(55, 131, 55)',
