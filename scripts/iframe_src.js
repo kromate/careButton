@@ -249,7 +249,7 @@ const initButton = ({ color, bgColor, scriptURL, openIcon, closeIcon, title, des
 <path d="M22.8625 1.5L1.49986 22.5627" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
-
+ 
       </header>
 
       <form action="" name="submit-to-google-sheet">
