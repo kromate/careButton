@@ -1,8 +1,11 @@
-export const functionality = (openIcon, closeIcon)=> {
-    const btnIcon = document.querySelector('#c123')
-    const boxContainer = document.querySelector('#box123')
+export const functionality = (openIcon, closeIcon, scriptURL)=> {
+    const btnIcon = document.querySelector('#c123') 
+    const boxContainer = document.querySelector('#box123') as HTMLDivElement
     const btnContainer = document.querySelector('#c123')
-		document?.querySelector('.closebtn')?.addEventListener('click', () => {
+
+    const form = document.forms['submit-to-google-sheet'];
+    if (btnIcon && boxContainer && btnContainer) {
+        	document?.querySelector('.closebtn')?.addEventListener('click', () => {
 			btnIcon.innerHTML = openIcon;
 			boxContainer.style.display = 'none';
 			btnContainer.classList.add('animateB123');
@@ -10,43 +13,49 @@ export const functionality = (openIcon, closeIcon)=> {
 		document?.getElementById('b123')?.addEventListener('click', () => {
 			const box = document?.getElementById('box123')?.style.display;
 			if (box === 'block') {
-				document.getElementById('c123').innerHTML = openIcon;
-				document.getElementById('box123').style.display = 'none';
-				document.getElementById('b123').classList.add('animateB123');
+				btnIcon.innerHTML = openIcon;
+				boxContainer.style.display = 'none';
+				btnContainer.classList.add('animateB123');
 			} else {
-				document.getElementById('c123').innerHTML = closeIcon;
-				document.getElementById('box123').style.display = 'block';
-				document.getElementById('b123').classList.remove('animateB123');
+				btnIcon.innerHTML = closeIcon;
+				boxContainer.style.display = 'block';
+				btnContainer.classList.remove('animateB123');
 			}
 		});
 
-		const form = document.forms['submit-to-google-sheet'];
-
+	
 		form.addEventListener('submit', (e) => {
-			e.preventDefault();
-			document.querySelector('#SUB123').disabled = true;
-			document.querySelector('#SUB123').innerHTML = 'Sending...';
+            e.preventDefault();
+            const submitBtn = document.querySelector('#SUB123') as HTMLButtonElement
+            if (submitBtn) {
+            submitBtn.disabled = true;
+			submitBtn.innerHTML = 'Sending...';
+            }
+		
 			fetch(scriptURL, { method: 'POST', body: new FormData(form) })
 				.then((response) => {
-					formSubmit();
+					formSubmit(form);
 				})
-				.catch((error) => formError());
+				.catch((error) => formError(form));
 		});
+	
+    }
+    
 
-		formSubmit = function () {
+    		const formSubmit =(form)=> {
 			form.innerHTML = `
                       <h3>Form Submitted</h3>
               <button onclick='showForm()' class='shrrr'>Send Another</button>
         `;
 		};
-		formError = function () {
+		const formError = (form)=> {
 			form.innerHTML = `
                       <h3>An Error Occurred <br> please send again</h3>
               <button onclick='showForm()' class='shrrr'>Retry</button>
         `;
 		};
 
-		showForm = function () {
+		const showForm = (form)=> {
 			form.innerHTML = `
                        <div class="v123"></div>
          <input type="text" placeholder="* Name" name="Product" value='KT' style='visibility: hidden; height:0px; padding:0px'> 
@@ -61,4 +70,4 @@ export const functionality = (openIcon, closeIcon)=> {
         <button id="SUB123" class="shrrr">Submit </button>
         `;
 		};
-	}
+    }

@@ -234,6 +234,6 @@ const initButton = ({
 		head?.appendChild(style);
 		body?.appendChild(contentBody);
 
-		functionality(openIcon, closeIcon);
+		functionality(openIcon, closeIcon, scriptURL);
 	}
 };
