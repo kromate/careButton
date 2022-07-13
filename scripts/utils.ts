@@ -70,4 +70,5 @@ export const functionality = (openIcon, closeIcon, scriptURL)=> {
         <button id="SUB123" class="shrrr">Submit </button>
         `;
 		};
-    }
+}
+    
